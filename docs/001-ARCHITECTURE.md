@@ -10,216 +10,290 @@ Owner: Founder & Project Director
 
 Architecture Lead: Chief AI Systems Architect
 
-Last Updated: 2026-06-18 (WITA)
+Last Updated: 2026-06-19 (WITA)
 
 ---
 
 Purpose
 
-This document defines the overall architecture of the AI Orchestration platform.
+This document defines the official architecture of the AI Orchestration Platform.
 
-It establishes how the system is organized, how components interact, and how future expansion can occur without compromising maintainability.
+Its purpose is to ensure every engineering decision follows a consistent architectural model that prioritizes scalability, modularity, maintainability, and AI-native collaboration.
 
 ---
 
-Architectural Philosophy
+Architecture Vision
 
-The architecture is designed around four principles:
+AI Orchestration is not a chatbot.
 
-- Modular
-- Scalable
-- Maintainable
+It is an AI Operating Platform where multiple AI systems collaborate under human supervision to solve complex tasks.
+
+---
+
+Design Principles
+
+The architecture is built upon the following principles:
+
+- Documentation First
+- Human-in-the-Loop
 - AI-Native
-
-Every subsystem has a single responsibility and communicates through well-defined interfaces.
-
----
-
-High-Level Architecture
-
-                    Human User
-                         │
-                         ▼
-                  User Interface
-                         │
-                         ▼
-               Conversation Engine
-                         │
-                         ▼
-                AI Orchestrator Core
-         ┌──────────┼──────────┐
-         ▼          ▼          ▼
-    AI Registry  Memory   Plugin Manager
-         │          │          │
-         └──────────┼──────────┘
-                    ▼
-              Infrastructure Layer
-                    │
-                    ▼
-                  Database
+- Modular by Design
+- Security by Default
+- Mobile-First Development
+- Long-Term Maintainability
 
 ---
 
-Core Components
+Layered Architecture
 
-User Interface
+Presentation Layer
+        │
+Application Layer
+        │
+Orchestration Layer
+        │
+Domain Layer
+        │
+Infrastructure Layer
+        │
+Persistence Layer
 
-Provides the interaction layer between users and the platform.
+Each layer has a single responsibility.
+
+No layer may bypass another without explicit architectural approval.
+
+---
+
+Presentation Layer
+
+Responsible for user interaction.
 
 Responsibilities:
 
-- Chat interface
-- Workspace navigation
+- Chat Interface
+- Workspace UI
+- Project Dashboard
+- Administration
 - Settings
-- Project management
+
+Future Expansion:
+
+- Mobile Application
+- Desktop Application
+- Voice Interface
 
 ---
 
-Conversation Engine
+Application Layer
 
-Coordinates every conversation.
+Coordinates user operations.
 
 Responsibilities:
 
-- Session management
-- Message routing
-- Context building
-- Response aggregation
+- Session Management
+- Conversation Management
+- Workspace Management
+- Project Lifecycle
+- User Preferences
 
 ---
 
-AI Orchestrator Core
+Orchestration Layer
 
-The central brain of the platform.
+The central intelligence of the platform.
 
 Responsibilities:
 
-- Task distribution
-- AI selection
-- Workflow coordination
-- Result synthesis
+- AI Routing
+- Task Scheduling
+- Workflow Execution
+- Response Aggregation
+- Context Distribution
+
+This layer determines which AI should execute a given task.
 
 ---
 
-AI Registry
+Domain Layer
 
-Maintains information about all connected AI models.
+Contains the business intelligence of the platform.
 
-Responsibilities:
+Core Domains:
 
-- AI profiles
-- Capabilities
-- Availability
-- Role assignment
+- AI Registry
+- Memory
+- Knowledge
+- Prompt Management
+- Plugins
+- Workflow
+- Context Management
 
----
-
-Memory Layer
-
-Stores reusable knowledge.
-
-Responsibilities:
-
-- Conversation history
-- Project memory
-- Shared context
-- Persistent knowledge
-
----
-
-Plugin Manager
-
-Provides extensibility.
-
-Responsibilities:
-
-- External integrations
-- Tools
-- Automation
-- Future modules
+Business rules belong here.
 
 ---
 
 Infrastructure Layer
 
-Handles technical services.
+Provides technical services.
 
 Responsibilities:
 
 - Authentication
+- Authorization
+- Database Access
 - Storage
+- API Gateway
 - Logging
 - Configuration
-- API communication
 
 ---
 
-Database Layer
+Persistence Layer
 
-Stores structured system data.
+Stores all persistent data.
+
+Examples:
+
+- Users
+- Organizations
+- Projects
+- Conversations
+- Messages
+- AI Registry
+- Knowledge
+- Audit Logs
+- System Configuration
+
+---
+
+Intelligence Core
+
+The Intelligence Core is the heart of AI Orchestration.
 
 Responsibilities:
 
-- Users
-- Projects
-- Conversations
-- AI Registry
-- Configuration
-- Audit logs
+- AI Selection
+- Capability Matching
+- Prompt Assembly
+- Memory Injection
+- Context Optimization
+- Response Evaluation
+- Multi-AI Collaboration
+
+This component enables multiple AI models to work together as a coordinated system.
 
 ---
 
-Architectural Principles
+AI Registry
 
-- Loose coupling
-- High cohesion
-- Separation of concerns
-- Reusable services
-- Stateless business logic where possible
-- Configuration over hardcoding
+The AI Registry maintains metadata for every available AI.
+
+Each AI record contains:
+
+- Identifier
+- Provider
+- Model
+- Version
+- Capabilities
+- Priority
+- Cost Profile
+- Availability
+- Status
+
+The registry allows dynamic AI selection.
+
+---
+
+Memory System
+
+Memory is divided into:
+
+- Session Memory
+- Workspace Memory
+- Project Memory
+- Global Knowledge
+
+Each memory scope has independent lifecycle management.
+
+---
+
+Plugin System
+
+Plugins extend platform capabilities without modifying the core architecture.
+
+Examples:
+
+- GitHub
+- Supabase
+- Google Drive
+- Notion
+- Calendar
+- Email
+- External APIs
+
+---
+
+Security Model
+
+Security principles:
+
+- Authentication First
+- Least Privilege
+- Audit Everything
+- Secure by Default
+- Data Ownership by Users
 
 ---
 
 Scalability Strategy
 
-The architecture supports horizontal expansion by allowing new AI models, plugins, and services to be added without modifying existing core components.
+The architecture supports:
+
+- Multiple AI Providers
+- Unlimited Workspaces
+- Multi-Organization
+- Plugin Ecosystem
+- Distributed Processing
+- Future Cloud Deployment
 
 ---
 
-Security Strategy
+Architecture Decision Records (ADR)
 
-Security is integrated by design.
+Major architectural decisions shall be documented as ADRs.
 
-Key principles:
+Initial ADRs:
 
-- Authentication first
-- Authorization by role
-- Secure API communication
-- Audit logging
-- Data ownership by users
-
----
-
-Future Expansion
-
-The architecture is prepared for:
-
-- Multi-workspace
-- Multi-organization
-- AI Marketplace
-- Workflow Automation
-- Knowledge Graph
-- Enterprise Deployment
-- Offline Synchronization
+- ADR-001 Documentation First
+- ADR-002 Human-in-the-Loop Governance
+- ADR-003 Mobile-First Development
+- ADR-004 Modular AI Registry
+- ADR-005 Layered Architecture
 
 ---
 
-Architecture Rule
+Architecture Rules
 
-Every new feature must belong to an existing architectural layer.
+Every new feature must:
 
-If a feature does not fit any existing layer, the architecture must be reviewed before implementation.
+- Belong to an architectural layer.
+- Follow documented interfaces.
+- Respect separation of concerns.
+- Avoid unnecessary coupling.
+- Preserve long-term maintainability.
 
 ---
 
-"A strong architecture allows software to evolve without losing its identity."
+Final Statement
+
+Architecture is the foundation of every implementation.
+
+Code may evolve.
+
+Technologies may change.
+
+The architecture shall remain the guiding reference for the entire platform.
+
+---
+
+"Build Once. Scale Forever."
