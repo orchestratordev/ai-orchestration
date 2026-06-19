@@ -1,9 +1,12 @@
 /**
- * Simple Logger
+ * AI ORCHESTRATION PLATFORM
+ * Logger Entry Point
  */
 
-export const logger = {
-  info: console.log,
-  warn: console.warn,
-  error: console.error,
-};
+export * from './types';
+export * from './logger';
+export * from './console';
+
+import { consoleLogger } from './console';
+
+export const logger = consoleLogger;
