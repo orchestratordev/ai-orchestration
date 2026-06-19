@@ -1,0 +1,53 @@
+# Normalize text files
+* text=auto eol=lf
+
+# TypeScript
+*.ts text
+*.tsx text
+
+# JavaScript
+*.js text
+*.jsx text
+
+# JSON
+*.json text
+
+# Markdown
+*.md text
+
+# CSS
+*.css text
+
+# SCSS
+*.scss text
+
+# HTML
+*.html text
+
+# YAML
+*.yml text
+*.yaml text
+
+# Shell
+*.sh text eol=lf
+
+# Environment files
+*.env text
+
+# Images
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.svg text
+
+# Fonts
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+
+# Documents
+*.pdf binary
