@@ -116,3 +116,9 @@ License information will be published in a future release.
 ---
 
 *"Great software begins with great documentation."*
+
+## License
+
+Copyright © 2026 Jani.
+
+All Rights Reserved.
