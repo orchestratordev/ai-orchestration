@@ -1,10 +1,10 @@
-import { bootstrap } from './bootstrap';
-import { initialize } from './initialize';
+import { bootstrap } from "./bootstrap";
+import { initialize } from "./initialize";
 
 import {
   transitionTo,
   KernelState,
-} from '@/core/lifecycle';
+} from "@/core/lifecycle";
 
 export async function startup() {
   transitionTo(KernelState.BOOTING);
