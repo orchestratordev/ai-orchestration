@@ -1,0 +1,8 @@
+export enum KernelState {
+  BOOTING = 'BOOTING',
+  INITIALIZING = 'INITIALIZING',
+  READY = 'READY',
+  RUNNING = 'RUNNING',
+  STOPPING = 'STOPPING',
+  SHUTDOWN = 'SHUTDOWN',
+}
